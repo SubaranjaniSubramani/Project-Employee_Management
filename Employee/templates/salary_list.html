@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salary List</title>
+
+    <style>
+
+        body{
+            font-family:Arial, sans-serif;
+            background:linear-gradient(to right,#4facfe,#00f2fe);
+            padding:40px;
+        }
+       
+        .container{
+            background:white;
+            padding:30px;
+            border-radius:15px;
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        th{
+            background:#007bff;
+            color:white;
+            padding:12px;
+        }
+
+        td{
+            padding:12px;
+            text-align:center;
+            border:1px solid #ddd;
+        }
+        a{
+            text-decoration:underline;
+            font-size:20px;
+            color:green;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Salary List</h1>
+
+    <a href="{% url 'Add_salary' %}">
+        Add Salary
+    </a>
+
+    <table>
+
+        <tr>
+            <th>Employee</th>
+            <th>Month</th>
+            <th>Amount</th>
+        </tr>
+
+        {% for s in salary %}
+
+        <tr>
+
+            <td>{{s.employee}}</td>
+
+            <td>{{s.month}}</td>
+
+            <td>{{s.amount}}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>

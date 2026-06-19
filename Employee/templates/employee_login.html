@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Login</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(to right,#4facfe,#00f2fe);
+        }
+
+        .login-container{
+            width:400px;
+            background:white;
+            padding:40px;
+            border-radius:15px;
+            box-shadow:0px 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .login-container h2{
+            text-align:center;
+            margin-bottom:25px;
+            color:#333;
+        }
+
+        .form-group{
+            margin-bottom:20px;
+        }
+
+        .form-group label{
+            display:block;
+            margin-bottom:8px;
+            font-weight:bold;
+            color:#555;
+        }
+
+        .form-group input{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            outline:none;
+            font-size:16px;
+        }
+
+        .form-group input:focus{
+            border-color:#4facfe;
+        }
+
+        .login-btn{
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:8px;
+            background:#4facfe;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .login-btn:hover{
+            background:#007bff;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="login-container">
+
+        <h2>Employee Login</h2>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="emp_username" placeholder="Enter Username">
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="emp_password" placeholder="Enter Password">
+            </div>
+
+            <button type="submit" class="login-btn">
+                Login
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

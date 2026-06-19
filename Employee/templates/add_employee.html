@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Employee</title>
+
+    <style>
+
+        body{
+            background:linear-gradient(to right,#4facfe,#00f2fe);
+            font-family:Arial, sans-serif;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+            width:500px;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#28a745;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Add Employee</h1>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        {{forms.as_p}}
+
+        <button type="submit">
+            Save Employee
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

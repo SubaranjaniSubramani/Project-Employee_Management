@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leave Requests</title>
+
+    <style>
+
+        body{
+            font-family:Arial, sans-serif;
+            background:linear-gradient(to right,#4facfe,#00f2fe);
+            padding:40px;
+        }
+
+        .container{
+            background:white;
+            padding:30px;
+            border-radius:15px;
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th{
+            background:#007bff;
+            color:white;
+            padding:12px;
+        }
+
+        td{
+            padding:12px;
+            text-align:center;
+            border:1px solid #ddd;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Leave Requests</h1>
+
+
+<table border="1">
+
+    <tr>
+        <th>Employee</th>
+        <th>Reason</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for l in leave %}
+
+    <tr>
+
+        <td>{{ l.employee.name }}</td>
+
+        <td>{{ l.reason }}</td>
+
+        <td>{{ l.status }}</td>
+
+        <td>
+
+            <a href="{% url 'Approve_leave' l.id %}">
+                Approve
+            </a>
+
+            |
+
+            <a href="{% url 'Reject_leave' l.id %}">
+                Reject
+            </a>
+
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+    
+
+</div>
+
+</body>
+</html>

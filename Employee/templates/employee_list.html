@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee List</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:linear-gradient(to right,#4facfe,#00f2fe);
+            min-height:100vh;
+            padding:40px;
+        }
+
+        .container{
+            width:95%;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0px 5px 20px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:25px;
+            color:#333;
+        }
+
+        .add-btn{
+            text-decoration:none;
+            background:#28a745;
+            color:white;
+            padding:10px 20px;
+            border-radius:8px;
+            display:inline-block;
+            margin-bottom:20px;
+        }
+
+        .add-btn:hover{
+            background:#218838;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th{
+            background:#007bff;
+            color:white;
+            padding:12px;
+        }
+
+        td{
+            padding:12px;
+            text-align:center;
+            border:1px solid #ddd;
+        }
+
+        tr:nth-child(even){
+            background:#f2f2f2;
+        }
+
+        tr:hover{
+            background:#e6f0ff;
+        }
+
+        .edit-btn{
+            text-decoration:none;
+            background:#ffc107;
+            color:black;
+            padding:8px 15px;
+            border-radius:5px;
+            margin-right:5px;
+        }
+
+        .delete-btn{
+            text-decoration:none;
+            background:#dc3545;
+            color:white;
+            padding:8px 15px;
+            border-radius:5px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Employee Details</h1>
+
+    <a href="{% url 'Add_employee' %}" class="add-btn">
+        Add Employee
+    </a>
+
+    <table>
+
+        <tr>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Department</th>
+          
+            <th>Actions</th>
+        </tr>
+
+        {% for e in emp_list %}
+
+        <tr>
+
+            <td>{{e.emp_username}}</td>
+            <td>{{e.name}}</td>
+            <td>{{e.age}}</td>
+            <td>{{e.email}}</td>
+            <td>{{e.department}}</td>
+            
+
+            <td>
+
+               <a href="{% url 'Update_employee' e.id %}"
+                   class="edit-btn">
+                    Edit
+                </a>
+
+                <a href="{% url 'Delete_employee' e.id %}"
+                   class="delete-btn">
+                    Delete
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>

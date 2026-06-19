@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Management System</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(to right,#4facfe,#00f2fe);
+        }
+
+        .container{
+            width:700px;
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0px 5px 20px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            color:#333;
+            margin-bottom:15px;
+        }
+
+        p{
+            color:#666;
+            margin-bottom:40px;
+        }
+
+        .card-container{
+            display:flex;
+            justify-content:center;
+            gap:30px;
+        }
+
+        .card{
+            width:250px;
+            padding:30px;
+            border-radius:15px;
+            background:#f8f9fa;
+            box-shadow:0px 2px 10px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+        }
+
+        .card h2{
+            color:#007bff;
+            margin-bottom:15px;
+        }
+
+        .card p{
+            margin-bottom:20px;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:12px 20px;
+            text-decoration:none;
+            color:white;
+            border-radius:8px;
+            font-weight:bold;
+        }
+
+        .admin-btn{
+            background:#007bff;
+        }
+
+        .employee-btn{
+            background:#28a745;
+        }
+
+        .admin-btn:hover{
+            background:#0056b3;
+        }
+
+        .employee-btn:hover{
+            background:#1e7e34;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Employee Management System</h1>
+
+    <p>
+        Welcome to the Employee Management System
+    </p>
+
+    <div class="card-container">
+
+        <div class="card">
+
+            <h2>Admin Portal</h2>
+
+            <p>
+                Manage Employees, Attendance,
+                Salary and Leave Requests.
+            </p>
+
+            <a href="{% url 'Admin_login' %}"
+               class="btn admin-btn">
+                Admin Login
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Employee Portal</h2>
+
+            <p>
+                View Profile, Attendance,
+                Salary and Apply Leave.
+            </p>
+
+            <a href="{% url 'Employee_login' %}"
+               class="btn employee-btn">
+                Employee Login
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
